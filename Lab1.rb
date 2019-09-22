@@ -1,10 +1,15 @@
 def string_permutation(array, n)
   if n == 1
-    return array
+    return array.map { |elem| [elem] }
   end
-  string_permutation(array, n - 1).map { |prefix| array.reduce([]) { |permutations, symbol| permutations.push(prefix + symbol) } }
-      .flatten
+  array.map { |elem| [elem] }
+      .map {
+          |prefix| array.reduce([]) {
+            |permutations, symbol| permutations.push(prefix + [symbol])
+        }
+      }
+      .flatten(1)
       .reject { |arr| arr[-1] == arr[-2] }
 end
 
-#puts string_permutation(%w(a b c), 3)
+print string_permutation(["a", ["b", "c"], "d"], 3)
