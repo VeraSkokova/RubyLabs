@@ -1,22 +1,22 @@
 def string_permutation(array, n)
-  def combine(array, suffixes, n)
+  def combine(element, suffixes, n)
     if n <= 0
       return []
     end
     if n == 1
-      return array
+      return element
     end
-    suffixes.map {
-        |suffix| array + [suffix]
-    }
-        .reject { |arr| arr[-1] == arr[-2] }
+    suffixes.reject { |suffix| element[-1] == suffix }
+        .map {
+            |suffix| element + [suffix]
+        }
         .map { |prefix| combine(prefix, suffixes, n - 1) }
-
+    # print "result=", result, "\n"
   end
 
   array.map { |elem| combine([elem], array, n) }.flatten(n - 1)
 end
 
-#array = ["a", ["b", "c"], "d"]
+#array = ["a", "b", "c"]
 #n = 3
 #print string_permutation(array, n)
