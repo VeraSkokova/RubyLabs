@@ -95,21 +95,8 @@ class NaivePriorityQueue
   end
 end
 
-
-#thread = Thread.new {[1, 2, 3, 4].any? { |i| i % 2 == 0 }}
-#print thread.value
-
-#task = Task.new(0, [1, 2, 3, 4])
-#value = task.run_job { [1, 5, 3, 8].any? { |i| i % 2 == 0 } }
-#print value
-
-#task = Task.new(0, [1, 2, 3, 4])
-#job = Proc.new { [1, 2, 3, 4].any? { |i| i % 2 == 0 } }
-#value = task.run_job { job.call }
-#print value
-
-m_array = MultithreadingArray.new([2, 3, 4, 5, 6], 2)
-print m_array.all? { |i| i % 2 == 0 }
+#m_array = MultithreadingArray.new([2, 3, 4, 5, 6], 2)
+#print m_array.all? { |i| i % 2 == 0 }
 
 
 
